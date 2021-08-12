@@ -1,20 +1,27 @@
-import React from 'react'
+// import React from 'react'
+// import TeamMember from './TeamMember'
 
 export default function Roster() {
 
 
-    fetch('https://coding-assignment.g2crowd.com/')
+    let list = () => {fetch('https://coding-assignment.g2crowd.com/')
     .then((response) => {
       return response.json();
     })
-    .then((data) => {
-      console.log(data);
-    });
-
+    .then((teamData) => {
+      teamData.map(teamObj => {
+          return console.log(teamObj)
+      })
+    })};
 
     return (
         <div>
             
-        </div>
+                
+                
+            <p>{list()} </p>
+            
+            </div>
     )
+
 }
