@@ -1,10 +1,10 @@
-// import React from 'react'
-// import TeamMember from './TeamMember'
+import React from 'react'
+import TeamMember from './TeamMember'
 
 export default function Roster() {
 
 
-    let list = () => {fetch('https://coding-assignment.g2crowd.com/')
+    fetch('https://coding-assignment.g2crowd.com/')
     .then((response) => {
       return response.json();
     })
@@ -12,14 +12,16 @@ export default function Roster() {
       teamData.map(teamObj => {
           return console.log(teamObj)
       })
-    })};
+    });
 
     return (
         <div>
             
                 
                 
-            <p>{list()} </p>
+            <p>
+                <TeamMember/>
+            </p>
             
             </div>
     )

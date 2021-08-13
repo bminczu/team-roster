@@ -1,15 +1,17 @@
-// import React from 'react'
+import React from 'react'
 
-// export default function TeamMember() {
+export default function TeamMember() {
 
 
-//     // const {name, image_url, title, bio} = member
+    // const {name, image_url, title, bio} = member
 
-//     return (
-//         <div>
+    return (
+        <div>
+            <p>
             
-            
 
-//         </div>
-//     )
-// }
+            </p>
+
+        </div>
+    )
+}
