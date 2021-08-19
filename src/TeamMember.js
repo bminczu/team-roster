@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 export default function TeamMember() {
 
 
@@ -7,10 +9,7 @@ export default function TeamMember() {
 
     return (
         <div>
-            <p>
-            
-
-            </p>
+          
 
         </div>
     )
