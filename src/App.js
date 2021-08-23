@@ -1,5 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import VoteButton from './VoteButton';
+
 
 
 function App() {
@@ -21,11 +23,11 @@ useEffect(()=>{
 
       {teamArr.map(member=> {
         return  <li key={member.name}> 
-        <h2>{member.name}</h2>
-        <img src={member.image_url} alt="Team member"></img>
-        <h4>{member.title}</h4>
-        <p>{member.bio}</p>
-
+        <h2 className='member-name'>{member.name}</h2>
+        <img className='member-img' src={member.image_url} alt="Team member"></img>
+        <h4 className='member-title'>{member.title}</h4>
+        <p className='member-bio'>{member.bio}</p>
+        <VoteButton/>
         
         
         
