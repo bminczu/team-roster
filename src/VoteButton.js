@@ -1,7 +1,10 @@
 import React from 'react'
-import "./styles.css"
+// import "./styles.css"
 
 export default function VoteButton() {
+
+    const {voteButton, setVoteButton} = useState()
+
     return (
         <div className="vote-button">
         {/* <?xml version="1.0" encoding="utf-8"?>

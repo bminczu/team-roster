@@ -17,8 +17,8 @@ useEffect(()=>{
 }, [])
 
   return (
-    <div>  
-
+    <div className='card'>  
+      <p className="title"> G2 Crowd Team Roster</p>
     
 
       {teamArr.map(member=> {
@@ -27,7 +27,8 @@ useEffect(()=>{
         <img className='member-img' src={member.image_url} alt="Team member"></img>
         <h4 className='member-title'>{member.title}</h4>
         <p className='member-bio'>{member.bio}</p>
-        <VoteButton/>
+        <p className='said-yes'></p>
+        <VoteButton key={member.name}/>
         </div>
       })}
     

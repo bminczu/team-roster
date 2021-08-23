@@ -1,6 +1,7 @@
 .vote-button{
     height: 50px;
     width: 50px;
+    
 }
 
 .member-name{
@@ -30,3 +31,53 @@
 
     
 }
+
+.title{
+
+    font-family: Arial; 
+    color:rgb(226,74,43); 
+    font-size:50px; 
+    padding-left: 25px;
+    font-weight: 100;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.said-yes{
+    margin-top: 10px;
+    font-family: Arial; 
+    font-size:20px;
+    color:rgb(67,67,67); 
+    padding-left: 270px;
+}
+/* .vote-btn{
+    width:  100px;
+    height: 40px;
+  
+    display: inline;
+} */
+
+
+.p-inline{
+    font-family: Arial; 
+    font-size:20px; 
+    color:rgb(67,67,67); 
+    display: inline;
+   font-weight: bold;
+  
+  }
+
+  .member-img{
+
+    float: left;
+    width:  250px;
+    height: 250px;
+    margin-right: 20px
+
+  }
+
+  .card{
+
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
