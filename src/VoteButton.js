@@ -1,12 +1,23 @@
 import React from 'react'
+import {useState, useEffect} from 'react';
 // import "./styles.css"
 
 export default function VoteButton() {
 
-    const {voteButton, setVoteButton} = useState()
+    
+    let [vote, setVote] = useState(0)
+
+    // let addVote = () =>{
+    //     parseInt(vote)
+    //     console.log(vote)
+    // }
+     let upVote= ()=>{
+        localStorage.setItem('vote-count', vote++)
+        console.log(vote)
+    }
 
     return (
-        <div className="vote-button">
+        <div onClick={upVote} className="vote-button">
         {/* <?xml version="1.0" encoding="utf-8"?>
         <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> */}
         <svg  xmlns="http://www.w3.org/2000/svg" id="icon-thumbs-up" viewBox="0 0 512 512">

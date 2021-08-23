@@ -28,7 +28,7 @@ useEffect(()=>{
         <h4 className='member-title'>{member.title}</h4>
         <p className='member-bio'>{member.bio}</p>
         <p className='said-yes'></p>
-        <VoteButton key={member.name}/>
+        <VoteButton/>
         </div>
       })}
     
