@@ -23,7 +23,7 @@ useEffect(()=>{
     
 
       {teamArr.map(member=> {
-        return  <div> 
+        return  <div key={member.name}> 
         <h2 className='member-name'>{member.name}</h2>
         <img className='member-img' src={member.image_url} alt="Team member"></img>
         <h4 className='member-title'>{member.title}</h4>
