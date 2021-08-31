@@ -8,18 +8,25 @@ export default function VoteButton(props) {
     const initialState = Number(window.localStorage.getItem("vote")) || 0
     const [vote, setVote] = useState(initialState)
     
-    let addVote = () => {
-        setVote(vote + 1)
-        console.log(vote)
-    }
 
     useEffect(()=>{
         window.localStorage.setItem("vote", vote)
-    },[vote])
+    },[vote]) 
+
+    let addVote = () => {
+        setVote(vote + 1)
+        console.log(props)
+
+    }
+
+
+
+    ///right now when clicking vote, vote key in local storageis set to the number of times clicked. Not discerning between the different 
+    ///team members.
     return (
 
 
-        <div>
+        <div key={props.teamMember.name}>
             <p>{vote}</p>
         {/* <?xml version="1.0" encoding="utf-8"?>
         <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> */}
