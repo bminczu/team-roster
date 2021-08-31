@@ -16,19 +16,20 @@ useEffect(()=>{
   console.log(teamArr)
 }, [])
 
+
   return (
     <div className='card'>  
       <p className="title"> G2 Crowd Team Roster</p>
     
 
       {teamArr.map(member=> {
-        return  <div key={member.name}> 
+        return  <div> 
         <h2 className='member-name'>{member.name}</h2>
         <img className='member-img' src={member.image_url} alt="Team member"></img>
         <h4 className='member-title'>{member.title}</h4>
         <p className='member-bio'>{member.bio}</p>
         <p className='said-yes'></p>
-        <VoteButton/>
+        <VoteButton  key={member.name} teamMember={member}/>
         </div>
       })}
     
