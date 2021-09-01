@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import VoteButton from './VoteButton';
-
+import TeamMemberCard from './TeamMemberCard'
 
 
 function App() {
@@ -13,7 +12,7 @@ useEffect(()=>{
   fetch('https://coding-assignment.g2crowd.com/')
   .then((response) => response.json())
   .then((json) => setTeamArr(json));
-  console.log(teamArr)
+ 
 }, [])
 
 
@@ -22,15 +21,10 @@ useEffect(()=>{
       <p className="title"> G2 Crowd Team Roster</p>
     
 
-      {teamArr.map(member=> {
-        return  <div key={member.name}> 
-        <h2 className='member-name'>{member.name}</h2>
-        <img className='member-img' src={member.image_url} alt="Team member"></img>
-        <h4 className='member-title'>{member.title}</h4>
-        <p className='member-bio'>{member.bio}</p>
-        <p className='said-yes'></p>
-        <VoteButton  key={member.id} teamMember={member}/>
-        </div>
+      {teamArr.map(memberObj=> {
+   
+        return  <TeamMemberCard key={memberObj.name} member={memberObj} />
+        
       })}
     
     </div>
