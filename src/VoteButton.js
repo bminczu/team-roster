@@ -5,12 +5,12 @@ import { useLocalStorage } from './useLocalStorage';
 
 export default function VoteButton(props) {
 
-    
+    const [individual, setIndividual] = useState()
     const initialState = Number(window.localStorage.getItem("vote")) || 0
     const [vote, setVote] = useState(initialState)
 
     const [allData, setAllData] = useState()
-    console.log(props)
+   
     let teamState = props.teamMember
 
     // console.log(teamState)
@@ -24,7 +24,6 @@ export default function VoteButton(props) {
         // console.log(props)
 
     }
-
 
 
     ///right now when clicking vote, vote key in local storageis set to the number of times clicked. Not discerning between the different 

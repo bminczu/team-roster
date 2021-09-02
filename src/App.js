@@ -12,18 +12,20 @@ useEffect(()=>{
   fetch('https://coding-assignment.g2crowd.com/')
   .then((response) => response.json())
   .then((json) => setTeamArr(json));
- 
 }, [])
 
 
+console.log(teamArr)
+
+
   return (
-    <div className='card'>  
+    <div>  
       <p className="title"> G2 Crowd Team Roster</p>
     
 
-      {teamArr.map(memberObj=> {
+      {teamArr.map(member=> {
    
-        return  <TeamMemberCard key={memberObj.name} member={memberObj} />
+        return  <TeamMemberCard key={member.name} member={member} />
         
       })}
     
