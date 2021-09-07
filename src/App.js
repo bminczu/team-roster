@@ -12,10 +12,14 @@ useEffect(()=>{
   fetch('https://coding-assignment.g2crowd.com/')
   .then((response) => response.json())
   .then((json) => setTeamArr(json));
+  
 }, [])
 
+let newTeamArr = teamArr.map(object =>({...object, votes: 0})
+   
+  )
+console.log(newTeamArr)
 
-console.log(teamArr)
 
 
   return (
