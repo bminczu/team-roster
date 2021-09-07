@@ -14,11 +14,12 @@ useEffect(()=>{
   .then((json) => setTeamArr(json.map(object => ({...object, votes: 0}))));
   // .then((json) => setTeamArr(json));
   
-  
 }, [])
 
 // let newTeamArr = teamArr.map(object =>({...object, votes: 0})
-   
+   useEffect(()=> {
+    localStorage.setItem("team", JSON.stringify(teamArr))
+   })
 //   )
 console.log(teamArr)
 

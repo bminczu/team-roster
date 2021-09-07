@@ -1,9 +1,13 @@
 import React from 'react'
 import VoteButton from './VoteButton'
+import {useState} from 'react'
 
 
 
 export default function TeamMemberCard(member) {
+
+const [storedArr, setStoredArr] = useState()
+
 
 
     const {name, image_url, title, bio} = member.member
