@@ -9,6 +9,12 @@ function App() {
 const [teamArr, setTeamArr] = useState([])
 
 useEffect(()=>{
+  const stored = JSON.parse(localStorage.getItem("team"))
+  if (stored){
+    setTeamArr(stored)
+    console.log("stored")
+  } else 
+  console.log("API")
   fetch('https://coding-assignment.g2crowd.com/')
   .then((response) => response.json())
   .then((json) => setTeamArr(json.map(object => ({...object, votes: 0}))));
