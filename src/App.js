@@ -11,14 +11,16 @@ const [teamArr, setTeamArr] = useState([])
 useEffect(()=>{
   fetch('https://coding-assignment.g2crowd.com/')
   .then((response) => response.json())
-  .then((json) => setTeamArr(json));
+  .then((json) => setTeamArr(json.map(object => ({...object, votes: 0}))));
+  // .then((json) => setTeamArr(json));
+  
   
 }, [])
 
-let newTeamArr = teamArr.map(object =>({...object, votes: 0})
+// let newTeamArr = teamArr.map(object =>({...object, votes: 0})
    
-  )
-console.log(newTeamArr)
+//   )
+console.log(teamArr)
 
 
 
