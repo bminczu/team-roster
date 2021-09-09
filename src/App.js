@@ -6,8 +6,9 @@ import TeamMemberCard from './TeamMemberCard'
 function App() {
 
 
-  const stored = JSON.parse(localStorage.getItem("team"))
-const [teamArr, setTeamArr] = useState([stored])
+const [teamArr, setTeamArr] = useState([])
+
+const stored = JSON.parse(localStorage.getItem("team"))
 
 
 useEffect(()=> {
@@ -29,8 +30,8 @@ useEffect(()=>{
 }, [])
 
 
- console.log(teamArr)
-//   )
+ console.log(teamArr, "why no data in teamArr")
+
 
 
 
