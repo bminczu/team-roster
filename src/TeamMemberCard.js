@@ -6,17 +6,17 @@ import {useState} from 'react'
 
 export default function TeamMemberCard(member) {
 
-const storedTeam = window.localStorage.getItem("team")
-const [storedArr, setStoredArr] = useState(storedTeam)
 
-const inStoreJSON = JSON.stringify(storedArr)
+const storedTeam = JSON.parse(localStorage.getItem("team"))
 
-// console.log(localStorage.getItem("team"))
+console.log(storedTeam, 'storedteam')
 
-// setStoredArr(inStoreJSON)
-// console.log(inStoreJSON)
-// const thisTeamMember = storedTeam.match(member.member.name)
-// console.log(window.localStorage.getItem("team"))
+
+const thisMember = () => storedTeam.map(obj => {
+   return console.log(obj.name)
+     
+})
+thisMember()
     
     const {name, image_url, title, bio, votes} = member.member
     return (
