@@ -6,7 +6,8 @@ import {useState} from 'react'
 
 export default function TeamMemberCard(member) {
 
-const [storedArr, setStoredArr] = useState(window.localStorage.getItem("team"))
+const storedTeam = window.localStorage.getItem("team")
+const [storedArr, setStoredArr] = useState(storedTeam)
 
 const inStoreJSON = JSON.stringify(storedArr)
 
