@@ -9,14 +9,25 @@ export default function TeamMemberCard(member) {
 
 const storedTeam = JSON.parse(localStorage.getItem("team"))
 
+const [updatedTeam, setUpdatedTeam] = useState(storedTeam)
+
 console.log(storedTeam, 'storedteam')
 
 
 const thisMember = () => storedTeam.map(obj => {
+    if (obj.name == member.member.name)
    return console.log(obj.name)
      
 })
+
 thisMember()
+
+ const addLikes = () => {
+    return thisMember.votes + 1
+    console.log(thisMember.votes)
+}
+
+
     
     const {name, image_url, title, bio, votes} = member.member
     return (
@@ -28,7 +39,7 @@ thisMember()
         <p className='member-bio'>{bio}</p>
         <p className='said-yes'></p>
         <p>{votes}</p>
-        <VoteButton  key={name} member={member.member}/>
+        <button key={name} onClick={addLikes} member={member.member}> {votes} Likes </button>
         </div>
     )
 }
