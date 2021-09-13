@@ -22,7 +22,7 @@ useEffect(()=>{
   fetch('https://coding-assignment.g2crowd.com/')
   .then((response) => response.json())
   .then((json) => setTeamArr(json.map(object => ({...object, votes: 0}))));
-  // localStorage.setItem("team", JSON.stringify(teamArr))
+
   
 }, [])
 
@@ -30,10 +30,7 @@ useEffect(()=> {
   localStorage.setItem("team", JSON.stringify(teamArr))
  })
 
-//  console.log(teamArr, "why no data in teamArr")
 
-// let setLocalStore = () => {localStorage.setItem("team", JSON.stringify(teamArr))}
-// JSON.parse(localStorage.getItem("team"))
 
 
   return (
