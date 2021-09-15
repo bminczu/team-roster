@@ -1,28 +1,32 @@
-import React, { Component } from "react";
+import axios from "axios";
+import React from "react";
 import { useState, useEffect } from "react";
 import TeamMemberCard from "./TeamMemberCard";
 
 function App() {
   const [teamArr, setTeamArr] = useState([]);
 
-  const stored = JSON.parse(localStorage.getItem("team"));
-
-  useEffect(async () => {
-    if (stored) {
-      setTeamArr(stored);
-    } else {
-      const response = await fetch("https://coding-assignment.g2crowd.com/", {
-        method: "GET",
-        mode: "no-cors",
-      });
-      const team = await response.json();
-      const teamWithVotes = team.map((entry) => ({ ...entry, votes: 0 }));
-      setTeamArr(teamWithVotes);
-    }
+  // initial retrieval from localStorage
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("team"));
+    if (stored) setTeamArr(stored);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("team", teamArr);
+    const fetchTeam = async () => {
+      try {
+        const { data: team } = await axios.get(
+          "https://coding-assignment.g2crowd.com/"
+        );
+
+        const teamWithVotes = team.map((entry) => ({ ...entry, votes: 0 }));
+
+        localStorage.setItem("team", JSON.stringify(teamWithVotes));
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchTeam();
   }, [teamArr]);
 
   return (
