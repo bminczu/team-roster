@@ -1,49 +1,36 @@
-import React, { Component } from 'react';
-import {useState, useEffect} from 'react';
-import TeamMemberCard from './TeamMemberCard'
-
+import React, { Component } from "react";
+import { useState, useEffect } from "react";
+import TeamMemberCard from "./TeamMemberCard";
 
 function App() {
+  const [teamArr, setTeamArr] = useState([]);
 
+  const stored = JSON.parse(localStorage.getItem("team"));
 
-const [teamArr, setTeamArr] = useState([])
+  useEffect(async () => {
+    if (stored) {
+      setTeamArr(stored);
+    } else {
+      const response = await fetch("https://coding-assignment.g2crowd.com/", {
+        method: "GET",
+        mode: "no-cors",
+      });
+      const team = await response.json();
+      const teamWithVotes = team.map((entry) => ({ ...entry, votes: 0 }));
+      setTeamArr(teamWithVotes);
+    }
+  }, []);
 
-const stored = JSON.parse(localStorage.getItem("team"))
-
-console.log(stored, "test")
-
-useEffect(()=>{
-  
-  if (stored){
-    setTeamArr(stored)
-    console.log("stored")
-  } else 
-  console.log("API")
-  fetch('https://coding-assignment.g2crowd.com/')
-  .then((response) => response.json())
-  .then((json) => setTeamArr(json.map(object => ({...object, votes: 0}))));
-
-  
-}, [])
-
-useEffect(()=> {
-  localStorage.setItem("team", JSON.stringify(teamArr))
- })
-
-
-
+  useEffect(() => {
+    localStorage.setItem("team", teamArr);
+  }, [teamArr]);
 
   return (
-    <div>  
+    <div>
       <p className="title"> G2 Crowd Team Roster</p>
-    
-
-      {teamArr.map(member=> {
-   
-        return  <TeamMemberCard key={member.name} member={member}/>
-        
+      {teamArr.map((member) => {
+        return <TeamMemberCard key={member.name} member={member} />;
       })}
-    
     </div>
   );
 }
@@ -52,5 +39,5 @@ export default App;
 
 // get all state into Component
 // grab the correct personalbar
-// increment the vote Count 
+// increment the vote Count
 // update local storage value
