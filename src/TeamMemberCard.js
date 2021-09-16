@@ -14,13 +14,13 @@ const thisMember = () => storedTeam.map(obj => {
     if (obj.name === member.member.name)
     return console.log(obj)
 })
-// thisMember()
+thisMember()
 
 
 
 const [thisState, setThisState] = useState([])
 
-console.log(thisState)
+
 
 
 
