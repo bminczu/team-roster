@@ -18,7 +18,7 @@ function App() {
         const { data: team } = await axios.get(
           "https://coding-assignment.g2crowd.com/"
         );
-
+          console.log("API")
         const teamWithVotes = team.map((entry) => ({ ...entry, votes: 0 }));
 
         localStorage.setItem("team", JSON.stringify(teamWithVotes));
